@@ -17,7 +17,22 @@
       <pubDate>Tue, 02 Jul 2019 23:39:02 +0800</pubDate>
       
       <guid>https://Carrylu.github.io/post/hehe/</guid>
-      <description> 11111111111111111111 </description>
+      <description>第一步：先cd进入public文件夹，查看当前git仓库状态 git status
+第二步：更新全部 git add *
+第三步：接着输入git commit -m &amp;ldquo;更新说明&amp;rdquo; git commit -m &amp;quot;更新说明&amp;quot;
+第四步：push到远程master分支上 git push origin master</description>
+    </item>
+    
+    <item>
+      <title>Github更新博客</title>
+      <link>https://Carrylu.github.io/post/hehe1/</link>
+      <pubDate>Tue, 02 Jul 2019 23:39:02 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/hehe1/</guid>
+      <description>第一步：先cd进入public文件夹，查看当前git仓库状态 git status
+第二步：更新全部 git add *
+第三步：接着输入git commit -m &amp;ldquo;更新说明&amp;rdquo; git commit -m &amp;quot;更新说明&amp;quot;
+第四步：push到远程master分支上 git push origin master</description>
     </item>
     
     <item>

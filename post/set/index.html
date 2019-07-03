@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Set接口 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Set接口"/>
+<meta name="twitter:description" content="Collection接口子接口：Set接口 1、存储的数据特点：无序的、不可重复的元素 具体的： 以HashSet为例说明： 1. 无序性：不等于随机性。存储的数据在底层数组中并非照数组索引的顺序添加，而是根据数据的哈希值决定的。 2. 不可重复性：保证添加的元素照equals()判断时，不能返回true.即：相同的元素只能添加一个。
+2、元素添加的过程：（以Hashset为例） 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值， 此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置，判断 数组此位置上是否已经元素： 如果此位置上没其他元素，则元素a添加成功。 ---&gt;情况1 如果此位置上其他元素b(或以链表形式存在的多个元素，则比较元素a与元素b的hash值： 如果hash值不相同，则元素a添加成功。---&gt;情况2 如果hash值相同，进而需要调用元素a所在类的equals()方法： equals()返回true,元素a添加失败 equals()返回false,则元素a添加成功。---&gt;情况2 对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。 jdk 7 :元素a放到数组中，指向原来的元素。 jdk 8 :原来的元素在数组中，指向元素a 总结：七上八下 HashSet底层：数组&#43;链表的结构。（前提：jdk7)  3、常用方法 Set接口中没额外定义新的方法，使用的都是Collection中声明过的方法。  4、常用实现类 |----Collection接口：单列集合，用来存储一个一个的对象 * |----Set接口：存储无序的、不可重复的数据 --&gt;高中讲的“集合” * |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值 * |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历 * 在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。 对于频繁的遍历操作，LinkedHashSet效率高于HashSet. * |----TreeSet：可以照添加对象的指定属性，进行排序。  5、存储对象所在类的要求 HashSet/LinkedHashSet: 要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals() 要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码 * 重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。 TreeSet: 1.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals(). 2.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().  6、Treeset的使用 6.1 使用说明 1.向TreeSet中添加的数据，要求是相同类的对象。
+2.两种排序方式：自然排序（实现Comparable接口和定制排序（Comparator）。
+6.2 常用的排序方式 //方式一：自然排序 @Test public void test1(){ TreeSet set = new TreeSet(); //失败：不能添加不同类的对象 // set."/>
+
+    <meta property="og:title" content="Set接口" />
+<meta property="og:description" content="Collection接口子接口：Set接口 1、存储的数据特点：无序的、不可重复的元素 具体的： 以HashSet为例说明： 1. 无序性：不等于随机性。存储的数据在底层数组中并非照数组索引的顺序添加，而是根据数据的哈希值决定的。 2. 不可重复性：保证添加的元素照equals()判断时，不能返回true.即：相同的元素只能添加一个。
+2、元素添加的过程：（以Hashset为例） 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值， 此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置，判断 数组此位置上是否已经元素： 如果此位置上没其他元素，则元素a添加成功。 ---&gt;情况1 如果此位置上其他元素b(或以链表形式存在的多个元素，则比较元素a与元素b的hash值： 如果hash值不相同，则元素a添加成功。---&gt;情况2 如果hash值相同，进而需要调用元素a所在类的equals()方法： equals()返回true,元素a添加失败 equals()返回false,则元素a添加成功。---&gt;情况2 对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。 jdk 7 :元素a放到数组中，指向原来的元素。 jdk 8 :原来的元素在数组中，指向元素a 总结：七上八下 HashSet底层：数组&#43;链表的结构。（前提：jdk7)  3、常用方法 Set接口中没额外定义新的方法，使用的都是Collection中声明过的方法。  4、常用实现类 |----Collection接口：单列集合，用来存储一个一个的对象 * |----Set接口：存储无序的、不可重复的数据 --&gt;高中讲的“集合” * |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值 * |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历 * 在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。 对于频繁的遍历操作，LinkedHashSet效率高于HashSet. * |----TreeSet：可以照添加对象的指定属性，进行排序。  5、存储对象所在类的要求 HashSet/LinkedHashSet: 要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals() 要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码 * 重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。 TreeSet: 1.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals(). 2.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().  6、Treeset的使用 6.1 使用说明 1.向TreeSet中添加的数据，要求是相同类的对象。
+2.两种排序方式：自然排序（实现Comparable接口和定制排序（Comparator）。
+6.2 常用的排序方式 //方式一：自然排序 @Test public void test1(){ TreeSet set = new TreeSet(); //失败：不能添加不同类的对象 // set." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/set/" />
+<meta property="article:published_time" content="2019-07-03T23:33:04&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-03T23:33:04&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Set接口</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 3, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="collection接口子接口-set接口">Collection接口子接口：Set接口</h1>
+
+<p><img src="https://Carrylu.github.io/post/collection.png" alt="collection-photo" /></p>
+
+<h2 id="1-存储的数据特点-无序的-不可重复的元素">1、存储的数据特点：无序的、不可重复的元素</h2>
+
+<p>具体的：
+以HashSet为例说明：
+1. 无序性：不等于随机性。存储的数据在底层数组中并非照数组索引的顺序添加，而是根据数据的哈希值决定的。
+2. 不可重复性：保证添加的元素照equals()判断时，不能返回true.即：相同的元素只能添加一个。</p>
+
+<h2 id="2-元素添加的过程-以hashset为例">2、元素添加的过程：（以Hashset为例）</h2>
+
+<pre><code class="language-properties">我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，
+此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置，判断
+数组此位置上是否已经元素：
+    如果此位置上没其他元素，则元素a添加成功。 ---&gt;情况1
+    如果此位置上其他元素b(或以链表形式存在的多个元素，则比较元素a与元素b的hash值：
+        如果hash值不相同，则元素a添加成功。---&gt;情况2
+        如果hash值相同，进而需要调用元素a所在类的equals()方法：
+               equals()返回true,元素a添加失败
+               equals()返回false,则元素a添加成功。---&gt;情况2
+
+对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。
+jdk 7 :元素a放到数组中，指向原来的元素。
+jdk 8 :原来的元素在数组中，指向元素a
+总结：七上八下
+
+HashSet底层：数组+链表的结构。（前提：jdk7)
+
+</code></pre>
+
+<h2 id="3-常用方法">3、常用方法</h2>
+
+<pre><code>Set接口中没额外定义新的方法，使用的都是Collection中声明过的方法。
+</code></pre>
+
+<h2 id="4-常用实现类">4、常用实现类</h2>
+
+<pre><code class="language-properties">|----Collection接口：单列集合，用来存储一个一个的对象
+*          |----Set接口：存储无序的、不可重复的数据   --&gt;高中讲的“集合”
+*              |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
+*                  |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
+*                 在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。                   对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
+*              |----TreeSet：可以照添加对象的指定属性，进行排序。
+</code></pre>
+
+<h2 id="5-存储对象所在类的要求">5、存储对象所在类的要求</h2>
+
+<pre><code class="language-properties">HashSet/LinkedHashSet:
+
+要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()
+要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码
+*    重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。 
+
+TreeSet:
+
+1.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().
+2.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().
+
+</code></pre>
+
+<h2 id="6-treeset的使用">6、Treeset的使用</h2>
+
+<h3 id="6-1-使用说明">6.1 使用说明</h3>
+
+<p>1.向TreeSet中添加的数据，要求是相同类的对象。</p>
+
+<p>2.两种排序方式：自然排序（实现Comparable接口和定制排序（Comparator）。</p>
+
+<h2 id="6-2-常用的排序方式">6.2 常用的排序方式</h2>
+
+<pre><code class="language-java">//方式一：自然排序
+@Test
+    public void test1(){
+        TreeSet set = new TreeSet();
+
+        //失败：不能添加不同类的对象
+//        set.add(123);
+//        set.add(456);
+//        set.add(&quot;AA&quot;);
+//        set.add(new User(&quot;Tom&quot;,12));
+
+            //举例一：
+//        set.add(34);
+//        set.add(-34);
+//        set.add(43);
+//        set.add(11);
+//        set.add(8);
+
+        //举例二：
+        set.add(new User(&quot;Tom&quot;,12));
+        set.add(new User(&quot;Jerry&quot;,32));
+        set.add(new User(&quot;Jim&quot;,2));
+        set.add(new User(&quot;Mike&quot;,65));
+        set.add(new User(&quot;Jack&quot;,33));
+        set.add(new User(&quot;Jack&quot;,56));
+
+
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+    }
+</code></pre>
+
+<pre><code class="language-java">//方式二：定制排序
+    @Test
+    public void test2(){
+        Comparator com = new Comparator() {
+            //照年龄从小到大排列
+            @Override
+            public int compare(Object o1, Object o2) {
+                if(o1 instanceof User &amp;&amp; o2 instanceof User){
+                    User u1 = (User)o1;
+                    User u2 = (User)o2;
+                    return Integer.compare(u1.getAge(),u2.getAge());
+                }else{
+                    throw new RuntimeException(&quot;输入的数据类型不匹配&quot;);
+                }
+            }
+        };
+
+        TreeSet set = new TreeSet(com);
+        set.add(new User(&quot;Tom&quot;,12));
+        set.add(new User(&quot;Jerry&quot;,32));
+        set.add(new User(&quot;Jim&quot;,2));
+        set.add(new User(&quot;Mike&quot;,65));
+        set.add(new User(&quot;Mary&quot;,33));
+        set.add(new User(&quot;Jack&quot;,33));
+        set.add(new User(&quot;Jack&quot;,56));
+
+
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

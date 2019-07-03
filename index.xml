@@ -24,7 +24,7 @@
     </item>
     
     <item>
-      <title>Github更新博客</title>
+      <title>Github更新方法</title>
       <link>https://Carrylu.github.io/post/hehe1/</link>
       <pubDate>Tue, 02 Jul 2019 23:39:02 +0800</pubDate>
       
@@ -38,10 +38,10 @@
     
     <item>
       <title>List接口</title>
-      <link>https://Carrylu.github.io/post/hehe/</link>
+      <link>https://Carrylu.github.io/post/hehe3/</link>
       <pubDate>Tue, 02 Jul 2019 23:39:02 +0800</pubDate>
       
-      <guid>https://Carrylu.github.io/post/hehe/</guid>
+      <guid>https://Carrylu.github.io/post/hehe3/</guid>
       <description>Collection接口子接口：List接口 1、存储的数据特点：有序的、可重复的数据 2、常用方法 增：add(); 删：remove(int index); / remove(Object obj); 改：set(int index,Object ele); //按照索引查找 查：get(int index); 插：add(int index,Object ele); 长度：size(); 遍历：① Iterator迭代器方式 ② 增强for循环 ③ 普通的循环  ① Iterator迭代器方式
 Iterator iterator=list.iterator(); while(iterator.hasnext()){ System.out.println(iterator.next()); }  ② 增强for循环
 for(Object obj: list){ System.out.println(obj); }  ③ 普通的循环

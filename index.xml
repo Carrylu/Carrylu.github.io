@@ -6,10 +6,30 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jul 2019 23:33:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2019 23:41:45 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Collections工具类</title>
+      <link>https://Carrylu.github.io/post/collections/</link>
+      <pubDate>Fri, 05 Jul 2019 23:41:45 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/collections/</guid>
+      <description>Collections工具类 1.作用：操作Collection的Map的工具类 2.常用方法： reverse(List)：反转 List 中元素的顺序 shuffle(List)：对 List 集合元素进行随机排序 sort(List)：根据元素的自然顺序对指定 List 集合元素升序排序 sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序 swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换 Object max(Collection)：根据元素的自然顺序，返回给定集合中的最大元素 Object max(Collection，Comparator)：根据 Comparator 指定的顺序，返回给定集合中的最大元素 Object min(Collection) Object min(Collection，Comparator) int frequency(Collection，Object)：返回指定集合中指定元素的出现次数 void copy(List dest,List src)：将src中的内容复制到dest中 boolean replaceAll(List list，Object oldVal，Object newVal)：使用新值替换 List 对象的所旧值  说明：ArrayList和HashMap都是线程不安全的，如果程序要求线程安全，我们可以将ArrayList、HashMap转换为线程的。 使用synchronizedList(List list） 和 synchronizedMap(Map map）
+3.面试题 面试题：Collection 和 Collections的区别？ 答：collection是集合，collections是工具类。</description>
+    </item>
+    
+    <item>
+      <title>Map接口</title>
+      <link>https://Carrylu.github.io/post/map/</link>
+      <pubDate>Fri, 05 Jul 2019 23:23:59 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/map/</guid>
+      <description>双列集合框架：map 1.常用实现类结构 |----Map:双列数据，存储key-value对的数据 ---类似于高中的函数：y = f(x) * |----HashMap:作为Map的主要实现类；线程不安全的，效率高；存储null的key和value * |----LinkedHashMap:保证在遍历map元素时，可以照添加的顺序实现遍历。 * 原因：在原的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。 * 对于频繁的遍历操作，此类执行效率高于HashMap。 * |----TreeMap:保证照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序 * 底层使用红黑树 * |----Hashtable:作为古老的实现类；线程安全的，效率低；不能存储null的key和value * |----Properties:常用来处理配置文件。key和value都是String类型 * * * HashMap的底层：数组+链表 （jdk7及之前) * 数组+链表+红黑树 （jdk 8)  2.存储结构的理解 &amp;gt;Map中的key:无序的、不可重复的，使用Set存储所的key ---&amp;gt; key所在的类要重写equals()和hashCode() （以HashMap为例) &amp;gt;Map中的value:无序的、可重复的，使用Collection存储所的value ---&amp;gt;value所在的类要重写equals() &amp;gt; 一个键值对：key-value构成了一个Entry对象。 &amp;gt;Map中的entry:无序的、不可重复的，使用Set存储所的entry  图示：
+3.常用方法 * 添加：put(Object key,Object value) * 删除：remove(Object key) * 修改：put(Object key,Object value) * 查询：get(Object key) * 长度：size() * 遍历：keySet() / values() / entrySet()  4.内存结构说明（难点） 4.</description>
+    </item>
     
     <item>
       <title>Set接口</title>

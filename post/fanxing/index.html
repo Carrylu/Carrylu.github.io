@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>泛型在集合中的使用 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="泛型在集合中的使用"/>
+<meta name="twitter:description" content="泛型在集合中的使用 1.在集合中使用泛型之前 @Test public void test1(){ ArrayList list = new ArrayList(); //需求：存放学生的成绩 list.add(78); list.add(76); list.add(89); list.add(88); //问题一：类型不安全 // list.add(&quot;Tom&quot;); for(Object score : list){ //问题二：强转时，可能出现ClassCastException int stuScore = (Integer) score; System.out.println(stuScore); } }  图示：在集合中没有泛型时 2.在集合中使用泛型 @Test public void test2(){ ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(); list.add(78); list.add(87); list.add(99); list.add(65); //编译时，就会进行类型检查，保证数据的安全 // list.add(&quot;Tom&quot;); //方式一： // for(Integer score : list){ // //避免了强转操作 // int stuScore = score; // // System.out.println(stuScore); // // } //方式二： Iterator&lt;Integer&gt; iterator = list."/>
+
+    <meta property="og:title" content="泛型在集合中的使用" />
+<meta property="og:description" content="泛型在集合中的使用 1.在集合中使用泛型之前 @Test public void test1(){ ArrayList list = new ArrayList(); //需求：存放学生的成绩 list.add(78); list.add(76); list.add(89); list.add(88); //问题一：类型不安全 // list.add(&quot;Tom&quot;); for(Object score : list){ //问题二：强转时，可能出现ClassCastException int stuScore = (Integer) score; System.out.println(stuScore); } }  图示：在集合中没有泛型时 2.在集合中使用泛型 @Test public void test2(){ ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(); list.add(78); list.add(87); list.add(99); list.add(65); //编译时，就会进行类型检查，保证数据的安全 // list.add(&quot;Tom&quot;); //方式一： // for(Integer score : list){ // //避免了强转操作 // int stuScore = score; // // System.out.println(stuScore); // // } //方式二： Iterator&lt;Integer&gt; iterator = list." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/fanxing/" />
+<meta property="article:published_time" content="2019-07-06T22:32:47&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-06T22:32:47&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">泛型在集合中的使用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 6, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="泛型在集合中的使用">泛型在集合中的使用</h1>
+
+<h2 id="1-在集合中使用泛型之前">1.在集合中使用泛型之前</h2>
+
+<pre><code class="language-java">@Test
+    public void test1(){
+        ArrayList list = new ArrayList();
+        //需求：存放学生的成绩
+        list.add(78);
+        list.add(76);
+        list.add(89);
+        list.add(88);
+        //问题一：类型不安全
+//        list.add(&quot;Tom&quot;);
+
+        for(Object score : list){
+            //问题二：强转时，可能出现ClassCastException
+            int stuScore = (Integer) score;
+
+            System.out.println(stuScore);
+
+        }
+
+    }
+</code></pre>
+
+<h2 id="图示-在集合中没有泛型时">图示：在集合中没有泛型时</h2>
+
+<p><img src="fanxing.png" alt="" /></p>
+
+<h2 id="2-在集合中使用泛型">2.在集合中使用泛型</h2>
+
+<pre><code class="language-java">@Test
+    public void test2(){
+       ArrayList&lt;Integer&gt; list =  new ArrayList&lt;Integer&gt;();
+
+        list.add(78);
+        list.add(87);
+        list.add(99);
+        list.add(65);
+        //编译时，就会进行类型检查，保证数据的安全
+//        list.add(&quot;Tom&quot;);
+
+        //方式一：
+//        for(Integer score : list){
+//            //避免了强转操作
+//            int stuScore = score;
+//
+//            System.out.println(stuScore);
+//
+//        }
+        //方式二：
+        Iterator&lt;Integer&gt; iterator = list.iterator();
+        while(iterator.hasNext()){
+            int stuScore = iterator.next();
+            System.out.println(stuScore);
+        }
+
+    }
+</code></pre>
+
+<h2 id="图示-在集合中有泛型时">图示：在集合中有泛型时</h2>
+
+<p><img src="fanxing1.png" alt="" /></p>
+
+<h2 id="3-在集合中使用泛型1">3.在集合中使用泛型1</h2>
+
+<pre><code class="language-java">//在集合中使用泛型的情况：以HashMap为例
+    @Test
+    public void test3(){
+//        Map&lt;String,Integer&gt; map = new HashMap&lt;String,Integer&gt;();
+        //jdk7新特性：类型推断
+        Map&lt;String,Integer&gt; map = new HashMap&lt;&gt;();
+
+        map.put(&quot;Tom&quot;,87);
+        map.put(&quot;Jerry&quot;,87);
+        map.put(&quot;Jack&quot;,67);
+
+//        map.put(123,&quot;ABC&quot;);
+        //泛型的嵌套
+        Set&lt;Map.Entry&lt;String,Integer&gt;&gt; entry = map.entrySet();
+        Iterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = entry.iterator();
+
+        while(iterator.hasNext()){
+            Map.Entry&lt;String, Integer&gt; e = iterator.next();
+            String key = e.getKey();    
+            Integer value = e.getValue();
+            System.out.println(key + &quot;----&quot; + value);
+        }
+
+    }
+</code></pre>
+
+<h2 id="4-在集合中使用泛型总结">4.在集合中使用泛型总结</h2>
+
+<ul>
+<li>① 集合接口或集合类在jdk5.0时都修改为带泛型的结构。</li>
+<li>② 在实例化集合类时，可以指明具体的泛型类型</li>
+<li>③ 指明完以后，在集合类或接口中凡是定义类或接口时，内部结构（比如：方法、构造器、属性等）使用到类的泛型的位置，都指定为实例化的泛型类型。</li>
+<li>比如：add(E e)  &mdash;&gt;实例化以后：add(Integer e)</li>
+<li>④ 注意点：泛型的类型必须是类，不能是基本数据类型。需要用到基本数据类型的位置，拿包装类替换</li>
+<li>⑤ 如果实例化时，没指明泛型的类型。默认类型为java.lang.Object类型。</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

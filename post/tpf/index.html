@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>通配符的使用 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="通配符的使用"/>
+<meta name="twitter:description" content="通配符的使用 /* 通配符的使用 通配符：? 类A是类B的父类，G&lt;A&gt;和G&lt;B&gt;是没关系的，二者共同的父类是：G&lt;?&gt; */ @Test public void test3(){ List&lt;Object&gt; list1 = null; List&lt;String&gt; list2 = null; List&lt;?&gt; list = null; list = list1; list = list2; //编译通过 // print(list1); // print(list2); // List&lt;String&gt; list3 = new ArrayList&lt;&gt;(); list3.add(&quot;AA&quot;); list3.add(&quot;BB&quot;); list3.add(&quot;CC&quot;); list = list3; //添加(写入)：对于List&lt;?&gt;就不能向其内部添加数据。 //除了添加null之外。 // list.add(&quot;DD&quot;); // list.add(&#39;?&#39;); list.add(null); //获取(读取)：允许读取数据，读取的数据类型为Object。 Object o = list.get(0); System.out.println(o); } public void print(List&lt;?&gt; list){ Iterator&lt;?&gt; iterator = list.iterator(); while(iterator.hasNext()){ Object obj = iterator."/>
+
+    <meta property="og:title" content="通配符的使用" />
+<meta property="og:description" content="通配符的使用 /* 通配符的使用 通配符：? 类A是类B的父类，G&lt;A&gt;和G&lt;B&gt;是没关系的，二者共同的父类是：G&lt;?&gt; */ @Test public void test3(){ List&lt;Object&gt; list1 = null; List&lt;String&gt; list2 = null; List&lt;?&gt; list = null; list = list1; list = list2; //编译通过 // print(list1); // print(list2); // List&lt;String&gt; list3 = new ArrayList&lt;&gt;(); list3.add(&quot;AA&quot;); list3.add(&quot;BB&quot;); list3.add(&quot;CC&quot;); list = list3; //添加(写入)：对于List&lt;?&gt;就不能向其内部添加数据。 //除了添加null之外。 // list.add(&quot;DD&quot;); // list.add(&#39;?&#39;); list.add(null); //获取(读取)：允许读取数据，读取的数据类型为Object。 Object o = list.get(0); System.out.println(o); } public void print(List&lt;?&gt; list){ Iterator&lt;?&gt; iterator = list.iterator(); while(iterator.hasNext()){ Object obj = iterator." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/tpf/" />
+<meta property="article:published_time" content="2019-07-08T23:01:55&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-08T23:01:55&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">通配符的使用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 8, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="通配符的使用">通配符的使用</h1>
+
+<pre><code class="language-java">/*
+    通配符的使用
+       通配符：?
+
+       类A是类B的父类，G&lt;A&gt;和G&lt;B&gt;是没关系的，二者共同的父类是：G&lt;?&gt;
+
+
+     */
+
+    @Test
+    public void test3(){
+        List&lt;Object&gt; list1 = null;
+        List&lt;String&gt; list2 = null;
+
+        List&lt;?&gt; list = null;
+
+        list = list1;
+        list = list2;
+        //编译通过
+//        print(list1);
+//        print(list2);
+
+
+        //
+        List&lt;String&gt; list3 = new ArrayList&lt;&gt;();
+        list3.add(&quot;AA&quot;);
+        list3.add(&quot;BB&quot;);
+        list3.add(&quot;CC&quot;);
+        list = list3;
+        //添加(写入)：对于List&lt;?&gt;就不能向其内部添加数据。
+        //除了添加null之外。
+//        list.add(&quot;DD&quot;);
+//        list.add('?');
+
+        list.add(null);
+
+        //获取(读取)：允许读取数据，读取的数据类型为Object。
+        Object o = list.get(0);
+        System.out.println(o);
+
+
+    }
+
+    public void print(List&lt;?&gt; list){
+        Iterator&lt;?&gt; iterator = list.iterator();
+        while(iterator.hasNext()){
+            Object obj = iterator.next();
+            System.out.println(obj);
+        }
+    }
+
+2.涉及通配符的集合的数据的写入和读取:
+
+见上	
+
+3.有限制条件的通配符的使用
+/*
+    限制条件的通配符的使用。
+        ? extends A:
+                G&lt;? extends A&gt; 可以作为G&lt;A&gt;和G&lt;B&gt;的父类，其中B是A的子类
+
+        ? super A:
+                G&lt;? super A&gt; 可以作为G&lt;A&gt;和G&lt;B&gt;的父类，其中B是A的父类
+
+     */
+    @Test
+    public void test4(){
+
+        List&lt;? extends Person&gt; list1 = null;
+        List&lt;? super Person&gt; list2 = null;
+
+        List&lt;Student&gt; list3 = new ArrayList&lt;Student&gt;();
+        List&lt;Person&gt; list4 = new ArrayList&lt;Person&gt;();
+        List&lt;Object&gt; list5 = new ArrayList&lt;Object&gt;();
+
+        list1 = list3;
+        list1 = list4;
+//        list1 = list5;
+
+//        list2 = list3;
+        list2 = list4;
+        list2 = list5;
+
+        //读取数据：
+        list1 = list3;
+        Person p = list1.get(0);
+        //编译不通过
+        //Student s = list1.get(0);
+
+        list2 = list4;
+        Object obj = list2.get(0);
+        ////编译不通过
+//        Person obj = list2.get(0);
+
+        //写入数据：
+        //编译不通过
+//        list1.add(new Student());
+
+        //编译通过
+        list2.add(new Person());
+        list2.add(new Student());
+
+    }	 
+
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

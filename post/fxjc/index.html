@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>泛型在继承方面的体现 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="泛型在继承方面的体现"/>
+<meta name="twitter:description" content=" 泛型在继承方面的体现 /* 1. 泛型在继承方面的体现 虽然类A是类B的父类，但是G&lt;A&gt; 和G&lt;B&gt;二者不具备子父类关系，二者是并列关系。 补充：类A是类B的父类，A&lt;G&gt; 是 B&lt;G&gt; 的父类 */ @Test public void test1(){ Object obj = null; String str = null; obj = str; Object[] arr1 = null; String[] arr2 = null; arr1 = arr2; //编译不通过 // Date date = new Date(); // str = date; List&lt;Object&gt; list1 = null; List&lt;String&gt; list2 = new ArrayList&lt;String&gt;(); //此时的list1和list2的类型不具子父类关系 //编译不通过 // list1 = list2; /* 反证法： 假设list1 = list2; list1.add(123);导致混入非String的数据。出错。 */ show(list1); show1(list2); } public void show1(List&lt;String&gt; list){ } public void show(List&lt;Object&gt; list){ } @Test public void test2(){ AbstractList&lt;String&gt; list1 = null; List&lt;String&gt; list2 = null; ArrayList&lt;String&gt; list3 = null; list1 = list3; list2 = list3; List&lt;String&gt; list4 = new ArrayList&lt;&gt;(); }  "/>
+
+    <meta property="og:title" content="泛型在继承方面的体现" />
+<meta property="og:description" content=" 泛型在继承方面的体现 /* 1. 泛型在继承方面的体现 虽然类A是类B的父类，但是G&lt;A&gt; 和G&lt;B&gt;二者不具备子父类关系，二者是并列关系。 补充：类A是类B的父类，A&lt;G&gt; 是 B&lt;G&gt; 的父类 */ @Test public void test1(){ Object obj = null; String str = null; obj = str; Object[] arr1 = null; String[] arr2 = null; arr1 = arr2; //编译不通过 // Date date = new Date(); // str = date; List&lt;Object&gt; list1 = null; List&lt;String&gt; list2 = new ArrayList&lt;String&gt;(); //此时的list1和list2的类型不具子父类关系 //编译不通过 // list1 = list2; /* 反证法： 假设list1 = list2; list1.add(123);导致混入非String的数据。出错。 */ show(list1); show1(list2); } public void show1(List&lt;String&gt; list){ } public void show(List&lt;Object&gt; list){ } @Test public void test2(){ AbstractList&lt;String&gt; list1 = null; List&lt;String&gt; list2 = null; ArrayList&lt;String&gt; list3 = null; list1 = list3; list2 = list3; List&lt;String&gt; list4 = new ArrayList&lt;&gt;(); }  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/fxjc/" />
+<meta property="article:published_time" content="2019-07-08T22:57:58&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-08T22:57:58&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">泛型在继承方面的体现</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 8, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="泛型在继承方面的体现">泛型在继承方面的体现</h1>
+
+<pre><code class="language-java">/*
+    1. 泛型在继承方面的体现
+
+      虽然类A是类B的父类，但是G&lt;A&gt; 和G&lt;B&gt;二者不具备子父类关系，二者是并列关系。
+
+       补充：类A是类B的父类，A&lt;G&gt; 是 B&lt;G&gt; 的父类
+
+     */
+    @Test
+    public void test1(){
+
+        Object obj = null;
+        String str = null;
+        obj = str;
+
+        Object[] arr1 = null;
+        String[] arr2 = null;
+        arr1 = arr2;
+        //编译不通过
+//        Date date = new Date();
+//        str = date;
+        List&lt;Object&gt; list1 = null;
+        List&lt;String&gt; list2 = new ArrayList&lt;String&gt;();
+        //此时的list1和list2的类型不具子父类关系
+        //编译不通过
+//        list1 = list2;
+        /*
+        反证法：
+        假设list1 = list2;
+           list1.add(123);导致混入非String的数据。出错。
+
+         */
+
+        show(list1);
+        show1(list2);
+
+    }
+
+
+
+    public void show1(List&lt;String&gt; list){
+
+    }
+
+    public void show(List&lt;Object&gt; list){
+
+    }
+
+    @Test
+    public void test2(){
+
+        AbstractList&lt;String&gt; list1 = null;
+        List&lt;String&gt; list2 = null;
+        ArrayList&lt;String&gt; list3 = null;
+
+        list1 = list3;
+        list2 = list3;
+
+        List&lt;String&gt; list4 = new ArrayList&lt;&gt;();
+
+    }
+
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>File类的使用 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="File类的使用"/>
+<meta name="twitter:description" content=" 1.File类的理解  1. File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) 2. File类声明在java.io包下 3. File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法， 并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容，必须使用IO流来完成。 4. 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的&rdquo;终点&rdquo;.  2.File的实例化 2.1 常用构造器  File(String filePath) File(String parentPath,String childPath) File(File parentFile,String childPath)  2.2 路径的分类  相对路径：相较于某个路径下，指明的路径。 绝对路径：包含盘符在内的文件或文件目录的路径  说明： * IDEA中： 如果大家开发使用JUnit中的单元测试方法测试，相对路径即为当前Module下。 如果大家使用main()测试，相对路径即为当前的Project下。 * Eclipse中： 不管使用单元测试方法还是使用main()测试，相对路径都是当前的Project下。
+3.File的常用方法 "/>
+
+    <meta property="og:title" content="File类的使用" />
+<meta property="og:description" content=" 1.File类的理解  1. File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) 2. File类声明在java.io包下 3. File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法， 并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容，必须使用IO流来完成。 4. 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的&rdquo;终点&rdquo;.  2.File的实例化 2.1 常用构造器  File(String filePath) File(String parentPath,String childPath) File(File parentFile,String childPath)  2.2 路径的分类  相对路径：相较于某个路径下，指明的路径。 绝对路径：包含盘符在内的文件或文件目录的路径  说明： * IDEA中： 如果大家开发使用JUnit中的单元测试方法测试，相对路径即为当前Module下。 如果大家使用main()测试，相对路径即为当前的Project下。 * Eclipse中： 不管使用单元测试方法还是使用main()测试，相对路径都是当前的Project下。
+3.File的常用方法 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/file/" />
+<meta property="article:published_time" content="2019-07-08T23:04:04&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-08T23:04:04&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">File类的使用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 8, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h2 id="1-file类的理解">1.File类的理解</h2>
+
+<ul>
+<li>1. File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹)</li>
+<li>2. File类声明在java.io包下</li>
+<li>3. File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法，
+并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容，必须使用IO流来完成。</li>
+<li>4. 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的&rdquo;终点&rdquo;.</li>
+</ul>
+
+<h2 id="2-file的实例化">2.File的实例化</h2>
+
+<h3 id="2-1-常用构造器">2.1 常用构造器</h3>
+
+<ul>
+<li>File(String filePath)</li>
+<li>File(String parentPath,String childPath)</li>
+<li>File(File parentFile,String childPath)</li>
+</ul>
+
+<h3 id="2-2-路径的分类">2.2 路径的分类</h3>
+
+<ul>
+<li>相对路径：相较于某个路径下，指明的路径。</li>
+<li>绝对路径：包含盘符在内的文件或文件目录的路径</li>
+</ul>
+
+<p>说明：
+* IDEA中：
+如果大家开发使用JUnit中的单元测试方法测试，相对路径即为当前Module下。
+如果大家使用main()测试，相对路径即为当前的Project下。
+* Eclipse中：
+不管使用单元测试方法还是使用main()测试，相对路径都是当前的Project下。</p>
+
+<h2 id="3-file的常用方法">3.File的常用方法</h2>
+
+<p><img src="file1.png" alt="" />
+<img src="file2.png" alt="" />
+<img src="file3.png" alt="" /></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

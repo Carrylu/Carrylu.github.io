@@ -6,10 +6,57 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jul 2019 23:41:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 23:04:04 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>File类的使用</title>
+      <link>https://Carrylu.github.io/post/file/</link>
+      <pubDate>Mon, 08 Jul 2019 23:04:04 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/file/</guid>
+      <description> 1.File类的理解  1. File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) 2. File类声明在java.io包下 3. File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法， 并未涉及到写入或读取文件内容的操作。如果需要读取或写入文件内容，必须使用IO流来完成。 4. 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的&amp;rdquo;终点&amp;rdquo;.  2.File的实例化 2.1 常用构造器  File(String filePath) File(String parentPath,String childPath) File(File parentFile,String childPath)  2.2 路径的分类  相对路径：相较于某个路径下，指明的路径。 绝对路径：包含盘符在内的文件或文件目录的路径  说明： * IDEA中： 如果大家开发使用JUnit中的单元测试方法测试，相对路径即为当前Module下。 如果大家使用main()测试，相对路径即为当前的Project下。 * Eclipse中： 不管使用单元测试方法还是使用main()测试，相对路径都是当前的Project下。
+3.File的常用方法 </description>
+    </item>
+    
+    <item>
+      <title>通配符的使用</title>
+      <link>https://Carrylu.github.io/post/tpf/</link>
+      <pubDate>Mon, 08 Jul 2019 23:01:55 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/tpf/</guid>
+      <description>通配符的使用 /* 通配符的使用 通配符：? 类A是类B的父类，G&amp;lt;A&amp;gt;和G&amp;lt;B&amp;gt;是没关系的，二者共同的父类是：G&amp;lt;?&amp;gt; */ @Test public void test3(){ List&amp;lt;Object&amp;gt; list1 = null; List&amp;lt;String&amp;gt; list2 = null; List&amp;lt;?&amp;gt; list = null; list = list1; list = list2; //编译通过 // print(list1); // print(list2); // List&amp;lt;String&amp;gt; list3 = new ArrayList&amp;lt;&amp;gt;(); list3.add(&amp;quot;AA&amp;quot;); list3.add(&amp;quot;BB&amp;quot;); list3.add(&amp;quot;CC&amp;quot;); list = list3; //添加(写入)：对于List&amp;lt;?&amp;gt;就不能向其内部添加数据。 //除了添加null之外。 // list.add(&amp;quot;DD&amp;quot;); // list.add(&#39;?&#39;); list.add(null); //获取(读取)：允许读取数据，读取的数据类型为Object。 Object o = list.get(0); System.out.println(o); } public void print(List&amp;lt;?&amp;gt; list){ Iterator&amp;lt;?&amp;gt; iterator = list.iterator(); while(iterator.hasNext()){ Object obj = iterator.</description>
+    </item>
+    
+    <item>
+      <title>泛型在继承方面的体现</title>
+      <link>https://Carrylu.github.io/post/fxjc/</link>
+      <pubDate>Mon, 08 Jul 2019 22:57:58 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/fxjc/</guid>
+      <description> 泛型在继承方面的体现 /* 1. 泛型在继承方面的体现 虽然类A是类B的父类，但是G&amp;lt;A&amp;gt; 和G&amp;lt;B&amp;gt;二者不具备子父类关系，二者是并列关系。 补充：类A是类B的父类，A&amp;lt;G&amp;gt; 是 B&amp;lt;G&amp;gt; 的父类 */ @Test public void test1(){ Object obj = null; String str = null; obj = str; Object[] arr1 = null; String[] arr2 = null; arr1 = arr2; //编译不通过 // Date date = new Date(); // str = date; List&amp;lt;Object&amp;gt; list1 = null; List&amp;lt;String&amp;gt; list2 = new ArrayList&amp;lt;String&amp;gt;(); //此时的list1和list2的类型不具子父类关系 //编译不通过 // list1 = list2; /* 反证法： 假设list1 = list2; list1.add(123);导致混入非String的数据。出错。 */ show(list1); show1(list2); } public void show1(List&amp;lt;String&amp;gt; list){ } public void show(List&amp;lt;Object&amp;gt; list){ } @Test public void test2(){ AbstractList&amp;lt;String&amp;gt; list1 = null; List&amp;lt;String&amp;gt; list2 = null; ArrayList&amp;lt;String&amp;gt; list3 = null; list1 = list3; list2 = list3; List&amp;lt;String&amp;gt; list4 = new ArrayList&amp;lt;&amp;gt;(); }  </description>
+    </item>
+    
+    <item>
+      <title>自定义泛型类、泛型接口、泛型方法</title>
+      <link>https://Carrylu.github.io/post/fanxing1/</link>
+      <pubDate>Sat, 06 Jul 2019 22:49:11 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/fanxing1/</guid>
+      <description>举例： 【Order.java】
+public class Order&amp;lt;T&amp;gt; { String orderName; int orderId; //类的内部结构就可以使用类的泛型 T orderT; public Order(){ //编译不通过 // T[] arr = new T[10]; //编译通过 T[] arr = (T[]) new Object[10]; } public Order(String orderName,int orderId,T orderT){ this.orderName = orderName; this.orderId = orderId; this.orderT = orderT; } //如下的个方法都不是泛型方法 public T getOrderT(){ return orderT; } public void setOrderT(T orderT){ this.orderT = orderT; } @Override public String toString() { return &amp;quot;Order{&amp;quot; + &amp;quot;orderName=&#39;&amp;quot; + orderName + &#39;\&#39;&#39; + &amp;quot;, orderId=&amp;quot; + orderId + &amp;quot;, orderT=&amp;quot; + orderT + &#39;}&#39;; } //静态方法中不能使用类的泛型。 // public static void show(T orderT){ // System.</description>
+    </item>
+    
+    <item>
+      <title>泛型在集合中的使用</title>
+      <link>https://Carrylu.github.io/post/fanxing/</link>
+      <pubDate>Sat, 06 Jul 2019 22:32:47 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/fanxing/</guid>
+      <description>泛型在集合中的使用 1.在集合中使用泛型之前 @Test public void test1(){ ArrayList list = new ArrayList(); //需求：存放学生的成绩 list.add(78); list.add(76); list.add(89); list.add(88); //问题一：类型不安全 // list.add(&amp;quot;Tom&amp;quot;); for(Object score : list){ //问题二：强转时，可能出现ClassCastException int stuScore = (Integer) score; System.out.println(stuScore); } }  图示：在集合中没有泛型时 2.在集合中使用泛型 @Test public void test2(){ ArrayList&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;Integer&amp;gt;(); list.add(78); list.add(87); list.add(99); list.add(65); //编译时，就会进行类型检查，保证数据的安全 // list.add(&amp;quot;Tom&amp;quot;); //方式一： // for(Integer score : list){ // //避免了强转操作 // int stuScore = score; // // System.out.println(stuScore); // // } //方式二： Iterator&amp;lt;Integer&amp;gt; iterator = list.</description>
+    </item>
     
     <item>
       <title>Collections工具类</title>

@@ -6,10 +6,29 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2019 23:04:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2019 23:27:40 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>节点流</title>
+      <link>https://Carrylu.github.io/post/jiedian/</link>
+      <pubDate>Fri, 12 Jul 2019 23:27:40 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/jiedian/</guid>
+      <description>1.FileReader/FileWriter的使用： 1.1 FileReader的使用 /* 将day09下的hello.txt文件内容读入程序中，并输出到控制台 说明点： 1. read()的理解：返回读入的一个字符。如果达到文件末尾，返回-1 2. 异常的处理：为了保证流资源一定可以执行关闭操作。需要使用try-catch-finally处理 3. 读入的文件一定要存在，否则就会报FileNotFoundException。 */ @Test public void testFileReader1() { FileReader fr = null; try { //1.File类的实例化 File file = new File(&amp;quot;hello.txt&amp;quot;); //2.FileReader流的实例化 fr = new FileReader(file); //3.读入的操作 //read(char[] cbuf):返回每次读入cbuf数组中的字符的个数。如果达到文件末尾，返回-1 char[] cbuf = new char[5]; int len; while((len = fr.read(cbuf)) != -1){ //方式一： //错误的写法 // for(int i = 0;i &amp;lt; cbuf.length;i++){ // System.out.print(cbuf[i]); // } //正确的写法 // for(int i = 0;i &amp;lt; len;i++){ // System.</description>
+    </item>
+    
+    <item>
+      <title>Io流概述</title>
+      <link>https://Carrylu.github.io/post/io/</link>
+      <pubDate>Fri, 12 Jul 2019 23:17:11 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/io/</guid>
+      <description> 1.流的分类  1.操作数据单位：字节流、字符流 2.数据的流向：输入流、输出流 3.流的角色：节点流、处理流  图示： 2.流的体系结构 * 说明：红框对应的是IO流中的4个抽象基类。 * 蓝框的流需要大家重点关注。
+3.重点说明的几个流结构 4.输入输出标准化问题 4.1 输入过程  ① 创建File类的对象，指明读取的数据的来源。（要求此文件一定要存在） ② 创建相应的输入流，将File类的对象作为参数，传入流的构造器中 ③ 具体的读入过程： 创建相应的byte[] 或 char[]。 ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  4.2 输出过程  ① 创建File类的对象，指明写出的数据的位置。（不要求此文件一定要存在） ② 创建相应的输出流，将File类的对象作为参数，传入流的构造器中 ③ 具体的写出过程： write(char[]/byte[] buffer,0,len) ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  </description>
+    </item>
     
     <item>
       <title>File类的使用</title>

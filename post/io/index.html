@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Io流概述 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Io流概述"/>
+<meta name="twitter:description" content=" 1.流的分类  1.操作数据单位：字节流、字符流 2.数据的流向：输入流、输出流 3.流的角色：节点流、处理流  图示： 2.流的体系结构 * 说明：红框对应的是IO流中的4个抽象基类。 * 蓝框的流需要大家重点关注。
+3.重点说明的几个流结构 4.输入输出标准化问题 4.1 输入过程  ① 创建File类的对象，指明读取的数据的来源。（要求此文件一定要存在） ② 创建相应的输入流，将File类的对象作为参数，传入流的构造器中 ③ 具体的读入过程： 创建相应的byte[] 或 char[]。 ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  4.2 输出过程  ① 创建File类的对象，指明写出的数据的位置。（不要求此文件一定要存在） ② 创建相应的输出流，将File类的对象作为参数，传入流的构造器中 ③ 具体的写出过程： write(char[]/byte[] buffer,0,len) ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  "/>
+
+    <meta property="og:title" content="Io流概述" />
+<meta property="og:description" content=" 1.流的分类  1.操作数据单位：字节流、字符流 2.数据的流向：输入流、输出流 3.流的角色：节点流、处理流  图示： 2.流的体系结构 * 说明：红框对应的是IO流中的4个抽象基类。 * 蓝框的流需要大家重点关注。
+3.重点说明的几个流结构 4.输入输出标准化问题 4.1 输入过程  ① 创建File类的对象，指明读取的数据的来源。（要求此文件一定要存在） ② 创建相应的输入流，将File类的对象作为参数，传入流的构造器中 ③ 具体的读入过程： 创建相应的byte[] 或 char[]。 ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  4.2 输出过程  ① 创建File类的对象，指明写出的数据的位置。（不要求此文件一定要存在） ② 创建相应的输出流，将File类的对象作为参数，传入流的构造器中 ③ 具体的写出过程： write(char[]/byte[] buffer,0,len) ④ 关闭流资源 说明：程序中出现的异常需要使用try-catch-finally处理。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/io/" />
+<meta property="article:published_time" content="2019-07-12T23:17:11&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-12T23:17:11&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Io流概述</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 12, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="1-流的分类">1.流的分类</h1>
+
+<ul>
+<li>1.操作数据单位：字节流、字符流</li>
+<li>2.数据的流向：输入流、输出流</li>
+<li>3.流的角色：节点流、处理流</li>
+</ul>
+
+<h2 id="图示">图示：</h2>
+
+<p><img src="https://Carrylu.github.io/post/io.png" alt="" /></p>
+
+<h1 id="2-流的体系结构">2.流的体系结构</h1>
+
+<p><img src="https://Carrylu.github.io/post/io1.png" alt="" />
+* 说明：红框对应的是IO流中的4个抽象基类。
+* 蓝框的流需要大家重点关注。</p>
+
+<h1 id="3-重点说明的几个流结构">3.重点说明的几个流结构</h1>
+
+<p><img src="https://Carrylu.github.io/post/io2.png" alt="" /></p>
+
+<h1 id="4-输入输出标准化问题">4.输入输出标准化问题</h1>
+
+<h2 id="4-1-输入过程">4.1 输入过程</h2>
+
+<ul>
+<li>① 创建File类的对象，指明读取的数据的来源。（要求此文件一定要存在）</li>
+<li>② 创建相应的输入流，将File类的对象作为参数，传入流的构造器中</li>
+<li>③ 具体的读入过程：
+创建相应的byte[] 或 char[]。</li>
+<li>④ 关闭流资源
+说明：程序中出现的异常需要使用try-catch-finally处理。</li>
+</ul>
+
+<h2 id="4-2-输出过程">4.2 输出过程</h2>
+
+<ul>
+<li>① 创建File类的对象，指明写出的数据的位置。（不要求此文件一定要存在）</li>
+<li>② 创建相应的输出流，将File类的对象作为参数，传入流的构造器中</li>
+<li>③ 具体的写出过程：
+write(char[]/byte[] buffer,0,len)</li>
+<li>④ 关闭流资源</li>
+<li>说明：程序中出现的异常需要使用try-catch-finally处理。</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

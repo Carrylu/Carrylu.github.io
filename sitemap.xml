@@ -3,20 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://Carrylu.github.io/post/file/</loc>
-    <lastmod>2019-07-08T23:04:04+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://Carrylu.github.io/</loc>
-    <lastmod>2019-07-08T23:04:04+08:00</lastmod>
+    <lastmod>2019-07-12T23:27:40+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://Carrylu.github.io/post/</loc>
-    <lastmod>2019-07-08T23:04:04+08:00</lastmod>
+    <lastmod>2019-07-12T23:27:40+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://Carrylu.github.io/post/jiedian/</loc>
+    <lastmod>2019-07-12T23:27:40+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Carrylu.github.io/post/io/</loc>
+    <lastmod>2019-07-12T23:17:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://Carrylu.github.io/post/file/</loc>
+    <lastmod>2019-07-08T23:04:04+08:00</lastmod>
   </url>
   
   <url>

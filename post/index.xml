@@ -6,10 +6,56 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jul 2019 23:27:40 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jul 2019 23:15:29 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对象流的使用</title>
+      <link>https://Carrylu.github.io/post/objectio/</link>
+      <pubDate>Tue, 16 Jul 2019 23:15:29 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/objectio/</guid>
+      <description>1.对象流： ObjectInputStream 和 ObjectOutputStream
+2.作用：  ObjectOutputStream:内存中的对象&amp;mdash;&amp;gt;存储中的文件、通过网络传输出去：序列化过程 ObjectInputStream:存储中的文件、通过网络接收过来 &amp;mdash;&amp;gt;内存中的对象：反序列化过程  3.对象的序列化机制： 对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘 上，或通过网络将这种二进制流传输到另一个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的 Java对象
+4.序列化代码实现： @Test public void testObjectOutputStream(){ ObjectOutputStream oos = null; try { //1. oos = new ObjectOutputStream(new FileOutputStream(&amp;quot;object.dat&amp;quot;)); //2. oos.writeObject(new String(&amp;quot;我爱北京天安门&amp;quot;)); oos.flush();//刷新操作 oos.writeObject(new Person(&amp;quot;王铭&amp;quot;,23)); oos.flush(); oos.writeObject(new Person(&amp;quot;张学良&amp;quot;,23,1001,new Account(5000))); oos.flush(); } catch (IOException e) { e.printStackTrace(); } finally { if(oos != null){ //3. try { oos.close(); } catch (IOException e) { e.printStackTrace(); } } } }  5.</description>
+    </item>
+    
+    <item>
+      <title>其它流的使用</title>
+      <link>https://Carrylu.github.io/post/otherio/</link>
+      <pubDate>Tue, 16 Jul 2019 23:10:38 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/otherio/</guid>
+      <description>1. 标准的输入输出流：  System.in:标准的输入流，默认从键盘输入 System.out:标准的输出流，默认从控制台输出  修改默认的输入和输出行为： System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。
+2.打印流 PrintStream 和PrintWriter 1. 说明： 提供了一系列重载的print()和println()方法，用于多种数据类型的输出 System.out返回的是PrintStream的实例
+3.数据流 DataInputStream 和 DataOutputStream 作用： 用于读取或写出基本数据类型的变量或字符串
+示例代码：
+/* 练习：将内存中的字符串、基本数据类型的变量写出到文件中。 注意：处理异常的话，仍然应该使用try-catch-finally. */ @Test public void test3() throws IOException { //1. DataOutputStream dos = new DataOutputStream(new FileOutputStream(&amp;quot;data.txt&amp;quot;)); //2. dos.writeUTF(&amp;quot;刘建辰&amp;quot;); dos.flush();//刷新操作，将内存中的数据写入文件 dos.writeInt(23); dos.flush(); dos.writeBoolean(true); dos.flush(); //3. dos.close(); } /* 将文件中存储的基本数据类型变量和字符串读取到内存中，保存在变量中。 注意点：读取不同类型的数据的顺序要与当初写入文件时，保存的数据的顺序一致！ */ @Test public void test4() throws IOException { //1. DataInputStream dis = new DataInputStream(new FileInputStream(&amp;quot;data.</description>
+    </item>
+    
+    <item>
+      <title>转换流</title>
+      <link>https://Carrylu.github.io/post/zhuanhuan/</link>
+      <pubDate>Sun, 14 Jul 2019 23:22:00 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/zhuanhuan/</guid>
+      <description>1.转换流涉及到的类：属于字符流（看后缀） InputStreamReader：将一个字节的输入流转换为字符的输入流 解码：字节、字节数组 &amp;mdash;&amp;gt;字符数组、字符串
+OutputStreamWriter：将一个字符的输出流转换为字节的输出流 编码：字符数组、字符串 &amp;mdash;&amp;gt; 字节、字节数组
+说明：编码决定了解码的方式
+2.作用：提供字节流与字符流之间的转换 3.图示： 4.典型实现: @Test public void test1() throws IOException { FileInputStream fis = new FileInputStream(&amp;quot;dbcp.txt&amp;quot;); // InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符集 //参数2指明了字符集，具体使用哪个字符集，取决于文件dbcp.txt保存时使用的字符集 InputStreamReader isr = new InputStreamReader(fis,&amp;quot;UTF-8&amp;quot;);//使用系统默认的字符集 char[] cbuf = new char[20]; int len; while((len = isr.read(cbuf)) != -1){ String str = new String(cbuf,0,len); System.out.print(str); } isr.close(); } /* 此时处理异常的话，仍然应该使用try-catch-finally 综合使用InputStreamReader和OutputStreamWriter */ @Test public void test2() throws Exception { //1.造文件、造流 File file1 = new File(&amp;quot;dbcp.</description>
+    </item>
+    
+    <item>
+      <title>缓冲流</title>
+      <link>https://Carrylu.github.io/post/buffer/</link>
+      <pubDate>Sun, 14 Jul 2019 23:11:49 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/buffer/</guid>
+      <description>1.缓冲流涉及到的类  BufferedInputStream BufferedOutputStream BufferedReader BufferedWriter  2.作用 作用：提供流的读取、写入的速度 提高读写速度的原因：内部提供了一个缓冲区。默认情况下是8kb
+3.典型代码 3.1使用BufferedInputStream和BufferedOutputStream:处理非文本文件 //实现文件复制的方法 public void copyFileWithBuffered(String srcPath,String destPath){ BufferedInputStream bis = null; BufferedOutputStream bos = null; try { //1.造文件 File srcFile = new File(srcPath); File destFile = new File(destPath); //2.造流 //2.1 造节点流 FileInputStream fis = new FileInputStream((srcFile)); FileOutputStream fos = new FileOutputStream(destFile); //2.2 造缓冲流 bis = new BufferedInputStream(fis); bos = new BufferedOutputStream(fos); //3.复制的细节：读取、写入 byte[] buffer = new byte[1024]; int len; while((len = bis.</description>
+    </item>
     
     <item>
       <title>节点流</title>

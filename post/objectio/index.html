@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>对象流的使用 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="对象流的使用"/>
+<meta name="twitter:description" content="1.对象流： ObjectInputStream 和 ObjectOutputStream
+2.作用：  ObjectOutputStream:内存中的对象&mdash;&gt;存储中的文件、通过网络传输出去：序列化过程 ObjectInputStream:存储中的文件、通过网络接收过来 &mdash;&gt;内存中的对象：反序列化过程  3.对象的序列化机制： 对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘 上，或通过网络将这种二进制流传输到另一个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的 Java对象
+4.序列化代码实现： @Test public void testObjectOutputStream(){ ObjectOutputStream oos = null; try { //1. oos = new ObjectOutputStream(new FileOutputStream(&quot;object.dat&quot;)); //2. oos.writeObject(new String(&quot;我爱北京天安门&quot;)); oos.flush();//刷新操作 oos.writeObject(new Person(&quot;王铭&quot;,23)); oos.flush(); oos.writeObject(new Person(&quot;张学良&quot;,23,1001,new Account(5000))); oos.flush(); } catch (IOException e) { e.printStackTrace(); } finally { if(oos != null){ //3. try { oos.close(); } catch (IOException e) { e.printStackTrace(); } } } }  5."/>
+
+    <meta property="og:title" content="对象流的使用" />
+<meta property="og:description" content="1.对象流： ObjectInputStream 和 ObjectOutputStream
+2.作用：  ObjectOutputStream:内存中的对象&mdash;&gt;存储中的文件、通过网络传输出去：序列化过程 ObjectInputStream:存储中的文件、通过网络接收过来 &mdash;&gt;内存中的对象：反序列化过程  3.对象的序列化机制： 对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘 上，或通过网络将这种二进制流传输到另一个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的 Java对象
+4.序列化代码实现： @Test public void testObjectOutputStream(){ ObjectOutputStream oos = null; try { //1. oos = new ObjectOutputStream(new FileOutputStream(&quot;object.dat&quot;)); //2. oos.writeObject(new String(&quot;我爱北京天安门&quot;)); oos.flush();//刷新操作 oos.writeObject(new Person(&quot;王铭&quot;,23)); oos.flush(); oos.writeObject(new Person(&quot;张学良&quot;,23,1001,new Account(5000))); oos.flush(); } catch (IOException e) { e.printStackTrace(); } finally { if(oos != null){ //3. try { oos.close(); } catch (IOException e) { e.printStackTrace(); } } } }  5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/objectio/" />
+<meta property="article:published_time" content="2019-07-16T23:15:29&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-16T23:15:29&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">对象流的使用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 16, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="1-对象流">1.对象流：</h1>
+
+<p>ObjectInputStream 和 ObjectOutputStream</p>
+
+<h1 id="2-作用">2.作用：</h1>
+
+<ul>
+<li>ObjectOutputStream:内存中的对象&mdash;&gt;存储中的文件、通过网络传输出去：序列化过程</li>
+<li>ObjectInputStream:存储中的文件、通过网络接收过来 &mdash;&gt;内存中的对象：反序列化过程</li>
+</ul>
+
+<h1 id="3-对象的序列化机制">3.对象的序列化机制：</h1>
+
+<p>对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘
+上，或通过网络将这种二进制流传输到另一个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的
+Java对象</p>
+
+<h1 id="4-序列化代码实现">4.序列化代码实现：</h1>
+
+<pre><code class="language-java">@Test
+public void testObjectOutputStream(){
+    ObjectOutputStream oos = null;
+
+    try {
+        //1.
+        oos = new ObjectOutputStream(new FileOutputStream(&quot;object.dat&quot;));
+        //2.
+        oos.writeObject(new String(&quot;我爱北京天安门&quot;));
+        oos.flush();//刷新操作
+
+        oos.writeObject(new Person(&quot;王铭&quot;,23));
+        oos.flush();
+
+        oos.writeObject(new Person(&quot;张学良&quot;,23,1001,new Account(5000)));
+        oos.flush();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if(oos != null){
+            //3.
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+}
+</code></pre>
+
+<h1 id="5-反序列化代码实现">5.反序列化代码实现：</h1>
+
+<pre><code class="language-java">@Test
+public void testObjectInputStream(){
+    ObjectInputStream ois = null;
+    try {
+        ois = new ObjectInputStream(new FileInputStream(&quot;object.dat&quot;));
+
+        Object obj = ois.readObject();
+        String str = (String) obj;
+
+        Person p = (Person) ois.readObject();
+        Person p1 = (Person) ois.readObject();
+
+        System.out.println(str);
+        System.out.println(p);
+        System.out.println(p1);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } finally {
+        if(ois != null){
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
+
+}
+
+</code></pre>
+
+<h1 id="6-实现序列化的对象所属的类需要满足">6.实现序列化的对象所属的类需要满足：</h1>
+
+<ul>
+<li>1.需要实现接口：Serializable</li>
+<li>2.当前类提供一个全局常量：serialVersionUID</li>
+<li>3.除了当前Person类需要实现Serializable接口之外，还必须保证其内部所属性</li>
+<li>也必须是可序列化的。（默认情况下，基本数据类型可序列化）</li>
+<li>补充：ObjectOutputStream和ObjectInputStream不能序列化static和transient修饰的成员变量</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

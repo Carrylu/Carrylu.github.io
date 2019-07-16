@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>转换流 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="转换流"/>
+<meta name="twitter:description" content="1.转换流涉及到的类：属于字符流（看后缀） InputStreamReader：将一个字节的输入流转换为字符的输入流 解码：字节、字节数组 &mdash;&gt;字符数组、字符串
+OutputStreamWriter：将一个字符的输出流转换为字节的输出流 编码：字符数组、字符串 &mdash;&gt; 字节、字节数组
+说明：编码决定了解码的方式
+2.作用：提供字节流与字符流之间的转换 3.图示： 4.典型实现: @Test public void test1() throws IOException { FileInputStream fis = new FileInputStream(&quot;dbcp.txt&quot;); // InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符集 //参数2指明了字符集，具体使用哪个字符集，取决于文件dbcp.txt保存时使用的字符集 InputStreamReader isr = new InputStreamReader(fis,&quot;UTF-8&quot;);//使用系统默认的字符集 char[] cbuf = new char[20]; int len; while((len = isr.read(cbuf)) != -1){ String str = new String(cbuf,0,len); System.out.print(str); } isr.close(); } /* 此时处理异常的话，仍然应该使用try-catch-finally 综合使用InputStreamReader和OutputStreamWriter */ @Test public void test2() throws Exception { //1.造文件、造流 File file1 = new File(&quot;dbcp."/>
+
+    <meta property="og:title" content="转换流" />
+<meta property="og:description" content="1.转换流涉及到的类：属于字符流（看后缀） InputStreamReader：将一个字节的输入流转换为字符的输入流 解码：字节、字节数组 &mdash;&gt;字符数组、字符串
+OutputStreamWriter：将一个字符的输出流转换为字节的输出流 编码：字符数组、字符串 &mdash;&gt; 字节、字节数组
+说明：编码决定了解码的方式
+2.作用：提供字节流与字符流之间的转换 3.图示： 4.典型实现: @Test public void test1() throws IOException { FileInputStream fis = new FileInputStream(&quot;dbcp.txt&quot;); // InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符集 //参数2指明了字符集，具体使用哪个字符集，取决于文件dbcp.txt保存时使用的字符集 InputStreamReader isr = new InputStreamReader(fis,&quot;UTF-8&quot;);//使用系统默认的字符集 char[] cbuf = new char[20]; int len; while((len = isr.read(cbuf)) != -1){ String str = new String(cbuf,0,len); System.out.print(str); } isr.close(); } /* 此时处理异常的话，仍然应该使用try-catch-finally 综合使用InputStreamReader和OutputStreamWriter */ @Test public void test2() throws Exception { //1.造文件、造流 File file1 = new File(&quot;dbcp." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/zhuanhuan/" />
+<meta property="article:published_time" content="2019-07-14T23:22:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-14T23:22:00&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">转换流</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 14, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="1-转换流涉及到的类-属于字符流-看后缀">1.转换流涉及到的类：属于字符流（看后缀）</h1>
+
+<p>InputStreamReader：将一个字节的输入流转换为字符的输入流
+解码：字节、字节数组  &mdash;&gt;字符数组、字符串</p>
+
+<p>OutputStreamWriter：将一个字符的输出流转换为字节的输出流
+编码：字符数组、字符串 &mdash;&gt; 字节、字节数组</p>
+
+<p>说明：编码决定了解码的方式</p>
+
+<h1 id="2-作用-提供字节流与字符流之间的转换">2.作用：提供字节流与字符流之间的转换</h1>
+
+<h1 id="3-图示">3.图示：</h1>
+
+<p><img src="zhuanhuan.png" alt="" /></p>
+
+<h1 id="4-典型实现">4.典型实现:</h1>
+
+<pre><code class="language-java">@Test
+    public void test1() throws IOException {
+
+        FileInputStream fis = new FileInputStream(&quot;dbcp.txt&quot;);
+//        InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符集
+        //参数2指明了字符集，具体使用哪个字符集，取决于文件dbcp.txt保存时使用的字符集
+        InputStreamReader isr = new InputStreamReader(fis,&quot;UTF-8&quot;);//使用系统默认的字符集
+
+        char[] cbuf = new char[20];
+        int len;
+        while((len = isr.read(cbuf)) != -1){
+            String str = new String(cbuf,0,len);
+            System.out.print(str);
+        }
+
+        isr.close();
+
+    }
+
+/*
+此时处理异常的话，仍然应该使用try-catch-finally
+
+综合使用InputStreamReader和OutputStreamWriter
+ */
+@Test
+public void test2() throws Exception {
+    //1.造文件、造流
+    File file1 = new File(&quot;dbcp.txt&quot;);
+    File file2 = new File(&quot;dbcp_gbk.txt&quot;);
+
+    FileInputStream fis = new FileInputStream(file1);
+    FileOutputStream fos = new FileOutputStream(file2);
+
+    InputStreamReader isr = new InputStreamReader(fis,&quot;utf-8&quot;);
+    OutputStreamWriter osw = new OutputStreamWriter(fos,&quot;gbk&quot;);
+
+    //2.读写过程
+    char[] cbuf = new char[20];
+    int len;
+    while((len = isr.read(cbuf)) != -1){
+        osw.write(cbuf,0,len);
+    }
+
+    //3.关闭资源
+    isr.close();
+    osw.close();
+
+
+}
+</code></pre>
+
+<h1 id="5-说明">5.说明</h1>
+
+<p>//文件编码的方式（比如：GBK），决定了解析时使用的字符集（也只能是GBK）。</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

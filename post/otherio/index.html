@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>其它流的使用 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="其它流的使用"/>
+<meta name="twitter:description" content="1. 标准的输入输出流：  System.in:标准的输入流，默认从键盘输入 System.out:标准的输出流，默认从控制台输出  修改默认的输入和输出行为： System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。
+2.打印流 PrintStream 和PrintWriter 1. 说明： 提供了一系列重载的print()和println()方法，用于多种数据类型的输出 System.out返回的是PrintStream的实例
+3.数据流 DataInputStream 和 DataOutputStream 作用： 用于读取或写出基本数据类型的变量或字符串
+示例代码：
+/* 练习：将内存中的字符串、基本数据类型的变量写出到文件中。 注意：处理异常的话，仍然应该使用try-catch-finally. */ @Test public void test3() throws IOException { //1. DataOutputStream dos = new DataOutputStream(new FileOutputStream(&quot;data.txt&quot;)); //2. dos.writeUTF(&quot;刘建辰&quot;); dos.flush();//刷新操作，将内存中的数据写入文件 dos.writeInt(23); dos.flush(); dos.writeBoolean(true); dos.flush(); //3. dos.close(); } /* 将文件中存储的基本数据类型变量和字符串读取到内存中，保存在变量中。 注意点：读取不同类型的数据的顺序要与当初写入文件时，保存的数据的顺序一致！ */ @Test public void test4() throws IOException { //1. DataInputStream dis = new DataInputStream(new FileInputStream(&quot;data."/>
+
+    <meta property="og:title" content="其它流的使用" />
+<meta property="og:description" content="1. 标准的输入输出流：  System.in:标准的输入流，默认从键盘输入 System.out:标准的输出流，默认从控制台输出  修改默认的输入和输出行为： System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。
+2.打印流 PrintStream 和PrintWriter 1. 说明： 提供了一系列重载的print()和println()方法，用于多种数据类型的输出 System.out返回的是PrintStream的实例
+3.数据流 DataInputStream 和 DataOutputStream 作用： 用于读取或写出基本数据类型的变量或字符串
+示例代码：
+/* 练习：将内存中的字符串、基本数据类型的变量写出到文件中。 注意：处理异常的话，仍然应该使用try-catch-finally. */ @Test public void test3() throws IOException { //1. DataOutputStream dos = new DataOutputStream(new FileOutputStream(&quot;data.txt&quot;)); //2. dos.writeUTF(&quot;刘建辰&quot;); dos.flush();//刷新操作，将内存中的数据写入文件 dos.writeInt(23); dos.flush(); dos.writeBoolean(true); dos.flush(); //3. dos.close(); } /* 将文件中存储的基本数据类型变量和字符串读取到内存中，保存在变量中。 注意点：读取不同类型的数据的顺序要与当初写入文件时，保存的数据的顺序一致！ */ @Test public void test4() throws IOException { //1. DataInputStream dis = new DataInputStream(new FileInputStream(&quot;data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/otherio/" />
+<meta property="article:published_time" content="2019-07-16T23:10:38&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-16T23:10:38&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">其它流的使用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 16, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="1-标准的输入输出流">1. 标准的输入输出流：</h1>
+
+<ul>
+<li>System.in:标准的输入流，默认从键盘输入</li>
+<li>System.out:标准的输出流，默认从控制台输出</li>
+</ul>
+
+<p>修改默认的输入和输出行为：
+System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。</p>
+
+<h1 id="2-打印流">2.打印流</h1>
+
+<p>PrintStream 和PrintWriter
+1. 说明：
+提供了一系列重载的print()和println()方法，用于多种数据类型的输出
+System.out返回的是PrintStream的实例</p>
+
+<h1 id="3-数据流">3.数据流</h1>
+
+<p>DataInputStream 和 DataOutputStream
+作用：
+用于读取或写出基本数据类型的变量或字符串</p>
+
+<p>示例代码：</p>
+
+<pre><code class="language-java">/*
+练习：将内存中的字符串、基本数据类型的变量写出到文件中。
+
+注意：处理异常的话，仍然应该使用try-catch-finally.
+ */
+@Test
+public void test3() throws IOException {
+    //1.
+    DataOutputStream dos = new DataOutputStream(new FileOutputStream(&quot;data.txt&quot;));
+    //2.
+    dos.writeUTF(&quot;刘建辰&quot;);
+    dos.flush();//刷新操作，将内存中的数据写入文件
+    dos.writeInt(23);
+    dos.flush();
+    dos.writeBoolean(true);
+    dos.flush();
+    //3.
+    dos.close();
+
+
+}
+/*
+将文件中存储的基本数据类型变量和字符串读取到内存中，保存在变量中。
+
+注意点：读取不同类型的数据的顺序要与当初写入文件时，保存的数据的顺序一致！
+
+ */
+@Test
+public void test4() throws IOException {
+    //1.
+    DataInputStream dis = new DataInputStream(new FileInputStream(&quot;data.txt&quot;));
+    //2.
+    String name = dis.readUTF();
+    int age = dis.readInt();
+    boolean isMale = dis.readBoolean();
+
+    System.out.println(&quot;name = &quot; + name);
+    System.out.println(&quot;age = &quot; + age);
+    System.out.println(&quot;isMale = &quot; + isMale);
+
+    //3.
+    dis.close();
+
+}
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

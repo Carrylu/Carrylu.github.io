@@ -6,10 +6,44 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jul 2019 23:15:29 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jul 2019 23:22:52 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TCP网络编程</title>
+      <link>https://Carrylu.github.io/post/tcp/</link>
+      <pubDate>Thu, 18 Jul 2019 23:22:52 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/tcp/</guid>
+      <description>代码示例1：客户端发送信息给服务端，服务端将数据显示在控制台上
+//客户端 @Test public void client() { Socket socket = null; OutputStream os = null; try { //1.创建Socket对象，指明服务器端的ip和端口号 InetAddress inet = InetAddress.getByName(&amp;quot;192.168.14.100&amp;quot;); socket = new Socket(inet,8899); //2.获取一个输出流，用于输出数据 os = socket.getOutputStream(); //3.写出数据的操作 os.write(&amp;quot;你好，我是客户端mm&amp;quot;.getBytes()); } catch (IOException e) { e.printStackTrace(); } finally { //4.资源的关闭 if(os != null){ try { os.close(); } catch (IOException e) { e.printStackTrace(); } } if(socket != null){ try { socket.close(); } catch (IOException e) { e.printStackTrace(); } } } } //服务端 @Test public void server() { ServerSocket ss = null; Socket socket = null; InputStream is = null; ByteArrayOutputStream baos = null; try { //1.</description>
+    </item>
+    
+    <item>
+      <title>InetAddress类的使用</title>
+      <link>https://Carrylu.github.io/post/inet/</link>
+      <pubDate>Thu, 18 Jul 2019 23:13:47 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/inet/</guid>
+      <description> 一、实现网络通信需要解决的两个问题  1.如何准确地定位网络上一台或多台主机；定位主机上的特定的应用 2.找到主机后如何可靠高效地进行数据传输  二、网络通信的两个要素：  1.对应问题一：IP和端口号 2.对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物理+数据链路层）  三、通信要素一：IP和端口号 1.IP的理解  1. IP:唯一的标识 Internet 上的计算机（通信实体） 2. 在Java中使用InetAddress类代表IP 3. IP分类：IPv4 和 IPv6 ; 万维网 和 局域网 4. 域名: www.baidu.com www.mi.com www.sina.com www.jd.com  域名解析：域名容易记忆，当在连接网络时输入一个主机的域名后，域名服务器(DNS)负责将域名转化成IP地址，这样才能和主机建立连接。 &amp;mdash;&amp;mdash;-域名解析 5. 本地回路地址：127.0.0.1 对应着：localhost  2.InetAddress类:此类的一个对象就代表着一个具体的IP地址 2.1实例化 getByName(String host) 、 getLocalHost()
+2.2常用方法 getHostName() / getHostAddress()
+3.端口号：正在计算机上运行的进程。  要求：不同的进程不同的端口号 范围：被规定为一个 16 位的整数 0~65535。  端口号与IP地址的组合得出一个网络套接字：Socket
+四、通信要素二：网络通信协议  分型模型  TCP和UDP的区别  TCP三次握手和四次挥手   </description>
+    </item>
+    
+    <item>
+      <title>随机存取文件流</title>
+      <link>https://Carrylu.github.io/post/random/</link>
+      <pubDate>Thu, 18 Jul 2019 23:02:27 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/random/</guid>
+      <description>1.随机存取文件流：RandomAccessFile 2.使用说明：  1.RandomAccessFile直接继承于java.lang.Object类，实现了DataInput和DataOutput接口 2.RandomAccessFile既可以作为一个输入流，又可以作为一个输出流
+ 3.如果RandomAccessFile作为输出流时，写出到的文件如果不存在，则在执行过程中自动创建。
+ 如果写出到的文件存在，则会对原文件内容进行覆盖。（默认情况下，从头覆盖）
+  可以通过相关的操作，实现RandomAccessFile“插入”数据的效果。seek(int pos)   3.典型代码1： @Test public void test1() { RandomAccessFile raf1 = null; RandomAccessFile raf2 = null; try { //1. raf1 = new RandomAccessFile(new File(&amp;quot;爱情与友情.jpg&amp;quot;),&amp;quot;r&amp;quot;); raf2 = new RandomAccessFile(new File(&amp;quot;爱情与友情1.jpg&amp;quot;),&amp;quot;rw&amp;quot;); //2. byte[] buffer = new byte[1024]; int len; while((len = raf1.read(buffer)) != -1){ raf2.write(buffer,0,len); } } catch (IOException e) { e.printStackTrace(); } finally { //3. if(raf1 != null){ try { raf1.</description>
+    </item>
     
     <item>
       <title>对象流的使用</title>

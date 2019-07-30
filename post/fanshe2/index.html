@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Class类的理解与获取Class的实例 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://Carrylu.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Class类的理解与获取Class的实例"/>
+<meta name="twitter:description" content="1.Class类的理解  1.类的加载过程： 程序经过javac.exe命令以后，会生成一个或多个字节码文件(.class结尾)。 接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件 加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此 运行时类，就作为Class的一个实例。 2.换句话说，Class的实例就对应着一个运行时类。 3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式 来获取此运行时类。  2.获取Class实例的几种方式：（前三种方式需要掌握） //方式一：调用运行时类的属性：.class Class clazz1 = Person.class; System.out.println(clazz1); //方式二：通过运行时类的对象,调用getClass() Person p1 = new Person(); Class clazz2 = p1.getClass(); System.out.println(clazz2); //方式三：调用Class的静态方法：forName(String classPath) Class clazz3 = Class.forName(&quot;com.atguigu.java.Person&quot;); // clazz3 = Class.forName(&quot;java.lang.String&quot;); System.out.println(clazz3); System.out.println(clazz1 == clazz2); System.out.println(clazz1 == clazz3); //方式四：使用类的加载器：ClassLoader (了解) ClassLoader classLoader = ReflectionTest.class.getClassLoader(); Class clazz4 = classLoader.loadClass(&quot;com.atguigu.java.Person&quot;); System.out.println(clazz4); System.out.println(clazz1 == clazz4);  3.总结：创建类的对象的方式?  方式一：new &#43; 构造器 方式二：要创建Xxx类的对象，可以考虑：Xxx、Xxxs、XxxFactory、XxxBuilder类中查看是否有 静态方法的存在。可以调用其静态方法，创建Xxx对象。 方式三：通过反射  4."/>
+
+    <meta property="og:title" content="Class类的理解与获取Class的实例" />
+<meta property="og:description" content="1.Class类的理解  1.类的加载过程： 程序经过javac.exe命令以后，会生成一个或多个字节码文件(.class结尾)。 接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件 加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此 运行时类，就作为Class的一个实例。 2.换句话说，Class的实例就对应着一个运行时类。 3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式 来获取此运行时类。  2.获取Class实例的几种方式：（前三种方式需要掌握） //方式一：调用运行时类的属性：.class Class clazz1 = Person.class; System.out.println(clazz1); //方式二：通过运行时类的对象,调用getClass() Person p1 = new Person(); Class clazz2 = p1.getClass(); System.out.println(clazz2); //方式三：调用Class的静态方法：forName(String classPath) Class clazz3 = Class.forName(&quot;com.atguigu.java.Person&quot;); // clazz3 = Class.forName(&quot;java.lang.String&quot;); System.out.println(clazz3); System.out.println(clazz1 == clazz2); System.out.println(clazz1 == clazz3); //方式四：使用类的加载器：ClassLoader (了解) ClassLoader classLoader = ReflectionTest.class.getClassLoader(); Class clazz4 = classLoader.loadClass(&quot;com.atguigu.java.Person&quot;); System.out.println(clazz4); System.out.println(clazz1 == clazz4);  3.总结：创建类的对象的方式?  方式一：new &#43; 构造器 方式二：要创建Xxx类的对象，可以考虑：Xxx、Xxxs、XxxFactory、XxxBuilder类中查看是否有 静态方法的存在。可以调用其静态方法，创建Xxx对象。 方式三：通过反射  4." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Carrylu.github.io/post/fanshe2/" />
+<meta property="article:published_time" content="2019-07-30T22:34:02&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-30T22:34:02&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://Carrylu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Class类的理解与获取Class的实例</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 30, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="1-class类的理解">1.Class类的理解</h1>
+
+<ul>
+<li>1.类的加载过程：
+程序经过javac.exe命令以后，会生成一个或多个字节码文件(.class结尾)。
+接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件
+加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此
+运行时类，就作为Class的一个实例。</li>
+<li>2.换句话说，Class的实例就对应着一个运行时类。</li>
+<li>3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式
+来获取此运行时类。</li>
+</ul>
+
+<h1 id="2-获取class实例的几种方式-前三种方式需要掌握">2.获取Class实例的几种方式：（前三种方式需要掌握）</h1>
+
+<pre><code class="language-java">//方式一：调用运行时类的属性：.class
+        Class clazz1 = Person.class;
+        System.out.println(clazz1);
+        //方式二：通过运行时类的对象,调用getClass()
+        Person p1 = new Person();
+        Class clazz2 = p1.getClass();
+        System.out.println(clazz2);
+
+        //方式三：调用Class的静态方法：forName(String classPath)
+        Class clazz3 = Class.forName(&quot;com.atguigu.java.Person&quot;);
+//        clazz3 = Class.forName(&quot;java.lang.String&quot;);
+        System.out.println(clazz3);
+
+        System.out.println(clazz1 == clazz2);
+        System.out.println(clazz1 == clazz3);
+
+        //方式四：使用类的加载器：ClassLoader  (了解)
+        ClassLoader classLoader = ReflectionTest.class.getClassLoader();
+        Class clazz4 = classLoader.loadClass(&quot;com.atguigu.java.Person&quot;);
+        System.out.println(clazz4);
+
+        System.out.println(clazz1 == clazz4);
+</code></pre>
+
+<h1 id="3-总结-创建类的对象的方式">3.总结：创建类的对象的方式?</h1>
+
+<ul>
+<li>方式一：new + 构造器</li>
+<li>方式二：要创建Xxx类的对象，可以考虑：Xxx、Xxxs、XxxFactory、XxxBuilder类中查看是否有
+静态方法的存在。可以调用其静态方法，创建Xxx对象。</li>
+<li>方式三：通过反射</li>
+</ul>
+
+<h1 id="4-class实例可以是哪些结构的说明">4.Class实例可以是哪些结构的说明</h1>
+
+<ol>
+<li>class:外部类、成员（成员内部类、静态内部类）、局部内部类、匿名内部类</li>
+<li>interface： 接口</li>
+<li>[]：数组</li>
+<li>enum：枚举</li>
+<li>annotation：注解 @interface</li>
+<li>primivate  type：基本数据类型</li>
+<li>void</li>
+</ol>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

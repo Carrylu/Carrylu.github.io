@@ -6,10 +6,58 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jul 2019 23:22:52 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jul 2019 22:47:26 +0800</lastBuildDate>
     
 	<atom:link href="https://Carrylu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>了解Classloader</title>
+      <link>https://Carrylu.github.io/post/classloader/</link>
+      <pubDate>Tue, 30 Jul 2019 22:47:26 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/classloader/</guid>
+      <description> 1.类的加载过程&amp;mdash;-了解 2.类的加载器的作用 3.类的加载器的分类 4.Java类编译、运行的执行的流程 5.使用Classloader加载src目录下的配置文件 public void test2() throws Exception { Properties pros = new Properties(); //此时的文件默认在当前的module下。 //读取配置文件的方式一： // FileInputStream fis = new FileInputStream(&amp;quot;jdbc.properties&amp;quot;); // FileInputStream fis = new FileInputStream(&amp;quot;src\\jdbc1.properties&amp;quot;); // pros.load(fis); //读取配置文件的方式二：使用ClassLoader //配置文件默认识别为：当前module的src下 ClassLoader classLoader = ClassLoaderTest.class.getClassLoader(); InputStream is = classLoader.getResourceAsStream(&amp;quot;jdbc1.properties&amp;quot;); pros.load(is); String user = pros.getProperty(&amp;quot;user&amp;quot;); String password = pros.getProperty(&amp;quot;password&amp;quot;); System.out.println(&amp;quot;user = &amp;quot; + user + &amp;quot;,password = &amp;quot; + password); }  </description>
+    </item>
+    
+    <item>
+      <title>Class类的理解与获取Class的实例</title>
+      <link>https://Carrylu.github.io/post/fanshe2/</link>
+      <pubDate>Tue, 30 Jul 2019 22:34:02 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/fanshe2/</guid>
+      <description>1.Class类的理解  1.类的加载过程： 程序经过javac.exe命令以后，会生成一个或多个字节码文件(.class结尾)。 接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件 加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此 运行时类，就作为Class的一个实例。 2.换句话说，Class的实例就对应着一个运行时类。 3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式 来获取此运行时类。  2.获取Class实例的几种方式：（前三种方式需要掌握） //方式一：调用运行时类的属性：.class Class clazz1 = Person.class; System.out.println(clazz1); //方式二：通过运行时类的对象,调用getClass() Person p1 = new Person(); Class clazz2 = p1.getClass(); System.out.println(clazz2); //方式三：调用Class的静态方法：forName(String classPath) Class clazz3 = Class.forName(&amp;quot;com.atguigu.java.Person&amp;quot;); // clazz3 = Class.forName(&amp;quot;java.lang.String&amp;quot;); System.out.println(clazz3); System.out.println(clazz1 == clazz2); System.out.println(clazz1 == clazz3); //方式四：使用类的加载器：ClassLoader (了解) ClassLoader classLoader = ReflectionTest.class.getClassLoader(); Class clazz4 = classLoader.loadClass(&amp;quot;com.atguigu.java.Person&amp;quot;); System.out.println(clazz4); System.out.println(clazz1 == clazz4);  3.总结：创建类的对象的方式?  方式一：new + 构造器 方式二：要创建Xxx类的对象，可以考虑：Xxx、Xxxs、XxxFactory、XxxBuilder类中查看是否有 静态方法的存在。可以调用其静态方法，创建Xxx对象。 方式三：通过反射  4.</description>
+    </item>
+    
+    <item>
+      <title>反射的概述</title>
+      <link>https://Carrylu.github.io/post/fanshe1/</link>
+      <pubDate>Tue, 30 Jul 2019 22:21:48 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/fanshe1/</guid>
+      <description>1.本章的主要内容 2.关于反射的理解 Reflection（反射)是被视为动态语言的关键，反射机制允许程序在执行期借助于Reflection API取得任何 类的内部信息，并能直接操作任意对象的内部属性及方法。
+框架 = 反射 + 注解 + 设计模式。
+3.体会反射机制的“动态性” //体会反射的动态性 @Test public void test2(){ for(int i = 0;i &amp;lt; 100;i++){ int num = new Random().nextInt(3);//0,1,2 String classPath = &amp;quot;&amp;quot;; switch(num){ case 0: classPath = &amp;quot;java.util.Date&amp;quot;; break; case 1: classPath = &amp;quot;java.lang.Object&amp;quot;; break; case 2: classPath = &amp;quot;com.atguigu.java.Person&amp;quot;; break; } try { Object obj = getInstance(classPath); System.out.println(obj); } catch (Exception e) { e.printStackTrace(); } } } /* 创建一个指定类的对象。 classPath:指定类的全类名 */ public Object getInstance(String classPath) throws Exception { Class clazz = Class.</description>
+    </item>
+    
+    <item>
+      <title>URL网络编程</title>
+      <link>https://Carrylu.github.io/post/url/</link>
+      <pubDate>Tue, 30 Jul 2019 22:14:27 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/url/</guid>
+      <description>1.URL(Uniform Resource Locator)的理解: 统一资源定位符，对应着互联网的某一资源地址
+2.URL的5个基本结构：  http://localhost:8080/examples/beauty.jpg?username=Tom 协议 主机名 端口号 资源地址 参数列表  3.如何实例化: URL url = new URL(&amp;quot;http://localhost:8080/examples/beauty.jpg?username=Tom&amp;quot;);  4.常用方法： 5.可以读取、下载对应的url资源： public static void main(String[] args) { HttpURLConnection urlConnection = null; InputStream is = null; FileOutputStream fos = null; try { URL url = new URL(&amp;quot;http://localhost:8080/examples/beauty.jpg&amp;quot;); urlConnection = (HttpURLConnection) url.openConnection(); urlConnection.connect(); is = urlConnection.getInputStream(); fos = new FileOutputStream(&amp;quot;day10\\beauty3.jpg&amp;quot;); byte[] buffer = new byte[1024]; int len; while((len = is.read(buffer)) !</description>
+    </item>
+    
+    <item>
+      <title>UDP网络编程</title>
+      <link>https://Carrylu.github.io/post/udp/</link>
+      <pubDate>Tue, 30 Jul 2019 22:10:03 +0800</pubDate>
+      
+      <guid>https://Carrylu.github.io/post/udp/</guid>
+      <description> 代码示例： //发送端 @Test public void sender() throws IOException { DatagramSocket socket = new DatagramSocket(); String str = &amp;quot;我是UDP方式发送的导弹&amp;quot;; byte[] data = str.getBytes(); InetAddress inet = InetAddress.getLocalHost(); DatagramPacket packet = new DatagramPacket(data,0,data.length,inet,9090); socket.send(packet); socket.close(); } //接收端 @Test public void receiver() throws IOException { DatagramSocket socket = new DatagramSocket(9090); byte[] buffer = new byte[100]; DatagramPacket packet = new DatagramPacket(buffer,0,buffer.length); socket.receive(packet); System.out.println(new String(packet.getData(),0,packet.getLength())); socket.close(); }  </description>
+    </item>
     
     <item>
       <title>TCP网络编程</title>
